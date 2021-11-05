@@ -1,0 +1,244 @@
+/*--- GLOBAL VARIABLES ---*/
+:root {
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-red: #e70013;
+  --color-blue: #022b52;
+  --color-dark-grey: #a1a8ad;
+  --color-light-grey: #ced2d3;
+
+  --font-family: "VisitDenmark-Regular";
+  --font-family-bold: "VisitDenmark-Bold";
+}
+@font-face {
+  font-family: "VisitDenmark-Regular";
+  src: url("../css/fonts/VisitDenmark-Regular.otf");
+}
+@font-face {
+  font-family: "VisitDenmark-Bold";
+  src: url("../css/fonts/VisitDenmark-Bold.otf");
+}
+/*--- GENERAL ---*/
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+.page {
+  padding: 80px 20px;
+}
+/*button {
+  background-color: var(--color-red);
+  color: var(--color-white);
+  border: none;
+  cursor: pointer;
+  height: 33px;
+  width: 100px;
+}*/
+h1 {
+  font-size: 18px;
+  text-align: center;
+  margin: 0;
+  padding: 5px;
+}
+h2 {
+  font-size: 18px;
+  color: var(--color-dark-grey);
+  margin: 0;
+}
+h3 {
+  font-size: 20px;
+  margin: 0;
+}
+p {
+  font-size: 12px;
+  color: var(--color-black);
+  font-family: var(--font-family-bold);
+}
+a {
+  text-decoration: none;
+}
+/*--- NAVIGATION ---*/
+.topbar {
+  background-color: var(--color-blue);
+  color: var(--color-white);
+  padding: 13.5px;
+  text-transform: uppercase;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  border-radius: 0 0 20px 20px;
+}
+.tabbar {
+  background-color: transparent;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  text-align: center;
+  color: var(--color-dark-grey);
+  border-top: 2px solid var(--color-dark-grey);
+  width: 90%;
+  margin: auto;
+}
+.tabbar a {
+  color: var(--color-dark-grey);
+}
+.iconify {
+  font-size: 50px;
+  margin: 7px 25px;
+  cursor: pointer;
+}
+.iconify2 {
+  margin: auto;
+}
+.tabbar a.active {
+  color: var(--color-blue);
+  background-color: transparent;
+}
+/*--- HOME PAGE ---*/
+.search-bar {
+  display: block;
+  width: 100%;
+  height: 30px;
+  margin: 15px auto 20px auto;
+  background-color: var(--color-light-grey);
+  border: none;
+  border-radius: 5px;
+  font-family: var(--font-family);
+}
+
+.homebox1,
+#homebox1 {
+  display: flex;
+  width: 100%;
+  height: 140px;
+  overflow: hidden;
+  overflow-x: scroll;
+  gap: 5px;
+}
+.citybox {
+  width: 130px;
+  height: 80px;
+  border-radius: 10%;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  -webkit-box-shadow: 0px 4px 13px 2px rgba(0, 0, 0, 0.44);
+  box-shadow: 0px 2px 5px 2px rgb(0 0 0 / 44%);
+  align-items: center;
+  cursor: pointer;
+  padding: 10px;
+  margin: 5px;
+  background-position: center;
+}
+.citybox2,
+.citybox3 {
+  border-radius: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  -webkit-box-shadow: 0px 4px 13px 2px rgb(0 0 0 / 44%);
+  box-shadow: 0px 2px 5px 2px rgb(0 0 0 / 44%);
+  align-items: center;
+  cursor: pointer;
+  margin: 5px;
+  height: 100px;
+  width: 130px;
+}
+.citybox2-img {
+  height: 100px;
+  max-width: 130px;
+  border-radius: 10%;
+  object-fit: cover;
+}
+.citybox3 {
+  background-color: var(--color-light-grey);
+}
+
+.aarhusbox {
+  background-image: url(../img/aarhus.jpg);
+}
+
+.kbhbox {
+  background-image: url(../img/copenhagen.jpg);
+}
+
+.odensebox {
+  background-image: url(../img/odense.jpg);
+}
+.aalborgbox {
+  background-image: url(../img/aalborg.jpg);
+}
+
+.box1txt {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  background-color: var(--color-white);
+  padding: 5px;
+  justify-content: center;
+  height: 15px;
+  width: 100px;
+  margin-bottom: -15px;
+  -webkit-box-shadow: 0px 4px 13px 2px rgb(0 0 0 / 44%);
+  box-shadow: 0px 4px 13px 2px rgb(0 0 0 / 44%);
+}
+.box1txt2 {
+  margin-top: -25px;
+  text-transform: uppercase;
+}
+
+.box1txt p {
+  font-size: 12px;
+}
+.flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/*--- Inspiration Sektion ---*/
+#grid-categories-home {
+  display: flex;
+}
+
+/*------------- Detail View  -------------*/
+#detailview {
+  padding: 0;
+}
+.detail-hero {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-pic {
+  background-image: url(../img/aarhus.jpg);
+  background-size: cover;
+  justify-content: center;
+  border-radius: 5%;
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+  width: 100vw;
+  height: 260px;
+}
+.detail-head {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.detail-top {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5%;
+  position: relative;
+  z-index: 99999;
+  color: white;
+  font-weight: lighter;
+  padding: 0px 20px 0px 20px;
+}
