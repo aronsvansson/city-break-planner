@@ -2,6 +2,7 @@
 // ========== GLOBAL VARIABLER =========
 let _categories = [];
 let _data = [];
+let _searches = [];
 
 const _baseUrl = "https://api.jsonbin.io/b/618120f7aa02be1d4462754e";
 const _headers = {
@@ -19,6 +20,7 @@ async function loadCategories() {
   console.log(data);
   _categories = data;
   appendCategories(_categories);
+  inspirationCategories(_categories);
 }
 loadCategories();
 
@@ -36,7 +38,22 @@ function appendCategories(categories) {
   document.querySelector("#grid-categories").innerHTML = htmlTemplate;
 }
 //FIND INSPIRATION SECTION
-
+function inspirationCategories(categoriesHome) {
+  let htmlTemplate = "";
+  for (const category of categoriesHome) {
+    htmlTemplate += /*html*/ `
+    <div class="flex">
+   <article class="citybox2">
+     <img class="citybox2-img" src="${category.ImageUrl}">
+    </article>
+    <div class="box1txt box1txt2">
+    <p>${category.Name}</p>
+    </div></div>
+    
+    `;
+  }
+  document.querySelector("#homebox1").innerHTML = htmlTemplate;
+}
 //FETCH DATA LOCAL
 fetch("./data.json")
   .then((response) => {
@@ -45,8 +62,27 @@ fetch("./data.json")
   .then((data) => console.log(data));
 
 //SEARCH FUNCTION
+function appendResultSearch(data) {
+  let htmlDrinks = "";
+  for (const filteredData of data) {
+    htmlTemplate += /*html*/ `
+    <article class="result-section" onclick="showData('${filteredData.id}')">
+      <div class="result-card">
+      
+        <div class="${filteredData.Children[0].Name}">
+          <img src="${filteredData.ImageUrl}">
+        </div>
+        
+      </div>
+    </article>  
+    `;
+  }
+  document.querySelector("#search-result").innerHTML = htmlDrinks;
+}
+
 function search(searchValue) {
   searchValue = searchValue.toLowerCase();
+  console.log(searchValue);
   let results = [];
   for (const searchedData of _data) {
     let name = searchedData.name.toLowerCase();
@@ -54,5 +90,24 @@ function search(searchValue) {
       results.push(searchedData);
     }
   }
-  console.log(results);
+  appendResultSearch(results);
 }
+
+/*
+function search(searchValue) {
+  searchValue = searchValue.toLowerCase();
+  console.log(searchValue);
+
+  let results = [];
+
+  for (const search of _data) {
+    console.log(search);
+    let name = search.name.toLowerCase();
+    if (name.includes(searchValue)) {
+      results.push(search);
+    }
+  }
+
+  appendCategories(results);
+}
+*/

@@ -10,6 +10,12 @@
     <link rel="shortcut icon" type="image/png" href="img/logo-white.png" />
     <link rel="stylesheet" href="css/style.css" />
     <script src="https://code.iconify.design/2/2.0.4/iconify.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
   </head>
   <body onhashchange="pageChange()">
     <!------------------- tabbar navigation ------------------->
@@ -45,38 +51,68 @@
         placeholder="	&#x1F50E;&#xFE0E; Search..."
         onkeyup="search(this.value)"
       />
+      <div class="search-result" id="search-result"></div>
+
       <section class="homepage">
         <p>PLANLÆG DIN NÆSTE FERIE</p>
         <div class="homebox1">
-      <div class="aarhusbox citybox">
-        <div class="box1txt">
-          <p>AARHUS</p>
-           </div>
-      </div>
-      <div class="kbhbox citybox">
-        <div class="box1txt">
-          <p>KØBENHAVN</p>
-           </div>
-      </div>
-      <div class="odensebox citybox">
-        <div class="box1txt">
-       <p>ODENSE</p>
+          <div class="aarhusbox citybox">
+            <a href="#detailview">
+              <div class="box1txt">
+                <p>AARHUS</p>
+              </div>
+            </a>
+          </div>
+          <div class="kbhbox citybox">
+            <div class="box1txt">
+              <p>KØBENHAVN</p>
+            </div>
+          </div>
+          <div class="odensebox citybox">
+            <div class="box1txt">
+              <p>ODENSE</p>
+            </div>
+          </div>
+          <div class="aalborgbox citybox">
+            <div class="box1txt">
+              <p>AALBORG</p>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="aalborgbox citybox">
-        <div class="box1txt">
-       <p>AALBORG</p>
+
+        <p>FIND INSPIRATION</p>
+        <div
+          id="grid-categories-home"
+          class="grid-container grid-categories-home"
+        >
+          <div id="homebox1"></div>
         </div>
-      </div>
-    </div>
-     
-      <p>FIND INSPIRATION</p>
-        <section id="categories-home" class="page">
-      <div id="grid-categories-home" class="grid-container grid-categories-home"></div>
+
+        <p>DINE FERIER</p>
+        <div class="citybox3">
+          <span
+            class="iconify iconify2"
+            data-icon="akar-icons:circle-plus"
+          ></span>
+          <div class="box1txt">
+            <p>TILFØJ FLERE</p>
+          </div>
+        </div>
+      </section>
     </section>
 
-    
-      <p>DINE FERIER</p>
+    <!------------------- Detail view ------------------->
+    <section id="detailview" class="page">
+      <div class="detail-top">
+        <i class="fas fa-less-than"></i>
+        <i class="far fa-heart"></i>
+      </div>
+      <div class="detail-hero">
+        <div class="detail-head">
+          <div class="detail-pic"></div>
+          <h3>Aarhus</h3>
+        </div>
+      </div>
     </section>
 
     <!------ liked page ------>
