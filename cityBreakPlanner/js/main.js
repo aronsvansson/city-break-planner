@@ -3,6 +3,7 @@
 let _categories = [];
 let _data;
 let _searches = [];
+let _liked;
 
 const _baseUrl = "https://api.jsonbin.io/b/618120f7aa02be1d4462754e";
 const _headers = {
@@ -58,6 +59,7 @@ function inspirationCategories(categoriesHome) {
     <div class="flex">
    <article class="citybox2">
      <img class="citybox2-img" src="${category.ImageUrl}">
+     
     </article>
     <div class="box1txt box1txt2">
     <p>${category.Name}</p>
@@ -165,50 +167,39 @@ async function init3() {
 }
 
 init3();
-// DETAIL VIEW - FILTER - KULTUR
 
-// FILTER - RESTAURANTS BTN
-/*function restaurantOnClick() {
-  let x = document.querySelector("#restaurantview");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}*/
-//FILTER - ACTIVITES BTN
-function filterSelection() {
-  let x = document.querySelector("#restaurantview");
-  let i = document.querySelector("#activitiesview");
-  if (x.style.display === "none" && i.style.display === "none") {
-    x.style.display = "block" && i.style.display === "none";
-  } else {
-    x.style.display = "none" && i.style.display === "block";
-  }
+// DETAIL VIEW - FILTER - RESTAURANTS BTN
+function showRestaurants() {
+  let restaurants = _data.filter((item) => item.Category.Id === 63);
+  appendData(restaurants);
+  console.log(restaurants);
 }
-
-/*
-// Add active class to the current button (highlight it)
-var btnContainer = document.getElementById("myBtnContainer");
-var btns = btnContainer.getElementsByClassName("btn");
-for (var i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function () {
-    var current = document.getElementsByClassName("active");
-    current[0].className = current[0].className.replace(" active", "");
-    this.className += " active";
-  });
+// DETAIL VIEW - FILTER - ACTIVITES BTN
+function showActivities() {
+  let activities = _data.filter((item) => item.MainCategory.Id === 36);
+  appendData(activities);
+  console.log(activities);
 }
-
-// DETAIL VIEW
-/*function detailview(categoriesDetail) {
+// DETAIL VIEW - FILTER - CULTURE BTN
+function showCulture() {
+  let culture = _data.filter((item) => item.MainCategory.Id === 3);
+  appendData(culture);
+  console.log(culture);
+}
+function appendData(items) {
   let htmlTemplate = "";
-  for (const category of categoriesDetail) {
-    htmlTemplate += html `
-    <p>${category.Name}</p>
+  for (const item of items) {
+    htmlTemplate += /*html*/ `
+    <section>
+    <span class="iconify iconify7" data-icon="bytesize:heart"></span>
+    <img class="filter-img" src="${getImage(item)}">
+    <p class="restaurantName">${item.Name}</p>
+    </section>
+
     `;
   }
-  document.querySelector("#detailView").innerHTML = htmlTemplate;
-}*/
+  document.querySelector("#restaurantview").innerHTML = htmlTemplate;
+}
 
 // DETAIL VIEW - RESTAURANT FLUX
 function restaurantFlux(restaurantsFlux) {
@@ -244,35 +235,15 @@ function appendResultSearch(data) {
   }
   document.querySelector("#search-result").innerHTML = htmlDrinks;
 }
-/*
-function search(searchValue) {
-  searchValue = searchValue.toLowerCase();
-  console.log(searchValue);
-  let results = [];
-  for (const searchedData of _data) {
-    let name = searchedData.name.toLowerCase();
-    if (name.includes(searchValue)) {
-      results.push(searchedData);
-    }
-  }
-  appendResultSearch(results);
-}
-*/
-/*
-function search(searchValue) {
-  searchValue = searchValue.toLowerCase();
-  console.log(searchValue);
 
-  let results = [];
+//GREETING
+let myDate = new Date();
+let hrs = myDate.getHours();
 
-  for (const search of _data) {
-    console.log(search);
-    let name = search.name.toLowerCase();
-    if (name.includes(searchValue)) {
-      results.push(search);
-    }
-  }
+let greet;
 
-  appendCategories(results);
-}
-*/
+if (hrs < 12) greet = "God morgen";
+else if (hrs >= 12 && hrs <= 17) greet = "God eftermiddag";
+else if (hrs >= 17 && hrs <= 24) greet = "Good aften";
+
+document.getElementById("greeting").innerHTML = greet + " og velkommen";

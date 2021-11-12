@@ -79,7 +79,7 @@
 
     <!------ HOME PAGE ------>
     <section id="home" class="page">
-      <h2>Hi...</h2>
+      <h2 id="greeting"></h2>
       <h3>Udforsk Storbyen</h3>
 
       <input
@@ -134,13 +134,13 @@
 
         <p>DINE FERIER</p>
         <div class="citybox3">
-          <span
+          <a href="#liked"><span
             class="iconify iconify2"
             data-icon="akar-icons:circle-plus"
           ></span>
           <div class="box1txt">
             <p>TILFØJ FLERE</p>
-          </div>
+          </div></a>
         </div>
       </section>
     </section>
@@ -181,37 +181,41 @@
         </div>
   
         <div class="btn-flex btn-flex2">
-          <button onclick="filterSelection('restaurant')" class="iconify-btn2">
+          <div class="btnHover">
+          <button onclick="showRestaurants()" class="iconify-btn2">
             <span
               class="iconify iconify6"
               data-icon="cil:dinner"
             ></span
             >Restauranter
           </button>
-          <button onclick="filterSelection('activities')" class="iconify-btn2">
+        </div>
+        <div class="btnHover">
+          <button onclick="showActivities()" class="iconify-btn2">
             <span
               class="iconify iconify6"
               data-icon="entypo:ticket"
         
             ></span
             >Aktiviteter
-          </button>
-          <button onclick="filterSelection('culture')" class="iconify-btn2">
+          </button></div>
+          <div class="btnHover">
+          <button onclick="showCulture()" class="iconify-btn2">
             <span
               class="iconify iconify6"
               data-icon="carbon:theater"
             ></span
             >Kultur
-          </button>
+          </button></div>
         </div>
         </div>
 <div class="page2">
 
-    <div id="restaurantview" class="filterDiv">
+    <div id="restaurantview">
       
     </div>
 
-    <div id="activitiesview" class="filterDiv2">
+    <div id="activitiesview">
 
     </div>
 
@@ -284,29 +288,31 @@
       <!-- Opret ferie page-->
       <section id="opretside" class="page">
         <div class="detail-top">
-        <a href="#home"><span class="iconify iconify4" data-icon="uil:angle-left-b"></span></a>
+        <a href="#liked"><span class="iconify iconify4" data-icon="uil:angle-left-b"></span></a>
         <span class="iconify iconify4" data-icon="bytesize:heart"></span>
       </div>
       <div class="page3">
-        <h3>Opret din ferie</h3>
+        <h3 class="opret-h3">OPRET DIN FERIE</h3>
 
         <div class="inputsection">
           <form class="inputform" action="">
-            <label for="fname">Feriens Navn</label>
-            <input placeholder="Feriens Navn" class="inputfield" type="text">
-            <label for="cityname">Skriv By</label>
-            <input placeholder="Skriv navnet på byen" class="inputfield" type="text">
+            <label for="fname"><h5>FERIENS NAVN</h5></label>
+            <input placeholder="Feriens Navn" class="inputfield" name="name" id="name" type="text">
+            <label class="cityname" for="cityname"><h5>SKRIV BY</h5></label>
+            <input placeholder="Skriv navnet på byen" class="inputfield" id="city" name="city" type="text">
             <h5>VÆLG IKON</h5>
             <div class="flex2">
-            <span class="iconify iconify2" data-icon="si-glyph:christmass-ball"></span>
-            <span class="iconify iconify2" data-icon="emojione-monotone:fallen-leaf"></span>
+            <span class="iconify iconify2" data-icon="mdi:ski"></span>
+            <span class="iconify iconify2" data-icon="akar-icons:sun"></span>
             <span class="iconify iconify2" data-icon="si-glyph:christmass-ball"></span>
             <span class="iconify iconify2" data-icon="emojione-monotone:fallen-leaf"></span>
             </div>
-            <h5>VÆLG DATOER</h5>
-            <input class="submitbtn" type="submit" value="Opret din ferie">
-
-            
+            <h5>VÆLG DATO</h5>
+            <label for="meeting-time"></label>
+            <input type="datetime-local" id="meeting-time"
+              name="meeting-time" value="2021-11-12T10:00"
+              min="2021-11-07T00:00" max="2055-11-14T00:00">
+           <a href="#liked" class="opret-btn">OPRET EN FERIE</a>
           </form>
         </div>
       </div>
@@ -322,8 +328,6 @@
     <!------------------- FOOTER ------------------->
     <footer>©Copyright 2021. All rights reserved.</footer>
 
-    <!-- <script type="text/javascript" src="categories.json"></script>
-        <script type="text/javascript" src="data.json"></script>-->
     <script src="js/spa.js"></script>
     <script src="data.json"></script>
     <script src="js/main.js" async defer></script>

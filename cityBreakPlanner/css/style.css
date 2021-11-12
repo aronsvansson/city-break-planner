@@ -63,6 +63,10 @@ h4 {
   text-align: center;
   font-size: 2rem;
 }
+h5 {
+  font-family: var(--font-family-bold);
+  font-size: 14px;
+}
 p {
   font-size: 12px;
   color: var(--color-black);
@@ -113,7 +117,6 @@ footer {
   cursor: pointer;
 }
 .iconify2 {
-  margin: auto;
   color: var(--color-blue);
 }
 .tabbar a.active {
@@ -375,7 +378,7 @@ footer {
   font-size: 25px;
   cursor: pointer;
   color: var(--color-blue);
-  background-color: var(--color-light-grey);
+  background-color: var(--color-dark-grey);
   margin: 0 0 45px 80px;
   padding: 3px 0;
   border-radius: 100%;
@@ -438,7 +441,6 @@ footer {
   margin: 5px;
 }
 .iconify6 {
-  color: var(--color-blue);
   font-size: 20px;
   margin: 5px;
 }
@@ -473,6 +475,18 @@ footer {
   -webkit-box-shadow: 0px 4px 13px 2px rgb(0 0 0 / 44%);
   box-shadow: 0px 4px 13px 2px rgb(0 0 0 / 44%);
 }
+.iconify2:hover {
+  color: var(--color-black);
+}
+.iconify-btn2:hover {
+  background-color: var(--color-blue);
+  color: var(--color-white);
+}
+
+.btnHover:hover {
+  color: var(--color-white);
+}
+
 /*----- FILTER -----*/
 .filter-img {
   width: 100%;
@@ -482,6 +496,7 @@ footer {
 }
 .restaurantName {
   font-family: var(--font-family-bold);
+  margin: 5px 0 20px 0;
 }
 
 /*------------- LIKED PAGE -------------*/
@@ -507,7 +522,7 @@ footer {
   font-size: 25px;
   cursor: pointer;
   color: var(--color-blue);
-  background-color: var(--color-light-grey);
+  background-color: var(--color-dark-grey);
   padding: 5px 0;
   border-radius: 100%;
   position: absolute;
@@ -542,6 +557,7 @@ footer {
   text-align: center;
   display: block;
   margin: auto;
+  font-family: var(--font-family);
 }
 /*--- DETAIL VIEW - FLUX ---*/
 .detail-img-flux {
@@ -554,10 +570,7 @@ footer {
 #detailviewFlux {
   padding: 0;
 }
-.active {
-  background-color: #666;
-  color: white;
-}
+
 /* opret ferie */
 #opretside {
   padding: 0;
@@ -577,9 +590,28 @@ footer {
   text-align: center;
   display: block;
   margin: auto;
+  border: none;
+  font-family: var(--font-family);
 }
-
 .inputfield {
   border: 0;
-  border-bottom: solid grey 1px;
+  border-bottom: 1px solid var(--color-dark-grey);
+  height: 25px;
+  font-family: var(--font-family);
+}
+.inputsection {
+  margin-top: 40px;
+}
+.opret-h3 {
+  font-family: var(--font-family-bold);
+  text-align: center;
+}
+.cityname {
+  margin-top: 20px;
+}
+input {
+  font-family: var(--font-family);
+}
+#meeting-time {
+  margin-bottom: 130px;
 }
